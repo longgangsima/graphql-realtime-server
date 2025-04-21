@@ -8,7 +8,9 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "postinstall": "prisma generate",
-    "start": "node build/index.js"
+    "start": "node build/index.js",
+    "dev:local": "dotenv -e .env.local -- tsx watch src/index.ts",
+    "dev:supabase": "dotenv -e .env.supabase -- tsx watch src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +36,7 @@
     "@types/node": "20.11.30",
     "@types/ws": "^8.18.1",
     "dotenv": "^16.5.0",
+    "dotenv-cli": "^8.0.0",
     "tsx": "4.7.0",
     "typescript": "5.2.2"
   }
