@@ -1,0 +1,28 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// This tells Prisma to generate the TypeScript client — the code you use like:
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+// This tells Prisma where your PostgreSQL database lives:
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ADD the User model 
+// const newId = cuid();
+// console.log(newId); // e.g. "clv9x0x0q0001f8l87f98o1xp"
+
+model User {
+  id   String @id @default(cuid())
+  name String
+}
