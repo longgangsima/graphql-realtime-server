@@ -6,7 +6,6 @@ import { useServer } from 'graphql-ws/lib/use/ws';
 import http from 'http';
 import { WebSocketServer } from 'ws';
 import { schema } from './graphql/schema';
-import { prisma } from './lib/prisma';
 
 async function startServer() {
   const app = express();
@@ -30,13 +29,6 @@ async function startServer() {
   apolloServer.applyMiddleware({ app });
 
   const PORT = 4000;
-
-  try {
-    await prisma.$connect();
-    console.log('✅ Successfully connected to Supabase PostgreSQL');
-  } catch (err) {
-    console.error('❌ Failed to connect to DB:', err);
-  }
 
   httpServer.listen(PORT, () => {
     console.log(`🚀 HTTP ready at http://localhost:${PORT}/graphql`);
