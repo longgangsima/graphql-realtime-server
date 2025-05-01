@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/index.ts",
-    "build": "prisma generate && tsc",
+    "build": "tsc",
+    "postinstall": "prisma generate",
     "start": "node build/index.js",
     "dev:local": "dotenv -e .env.local -- tsx watch src/index.ts",
     "dev:supabase": "dotenv -e .env.supabase -- tsx watch src/index.ts"
